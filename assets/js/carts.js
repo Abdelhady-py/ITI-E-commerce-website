@@ -8,19 +8,15 @@ const cartItemRow = document.getElementById("cart-item-row");
 const localStorageCart = JSON.parse(localStorage.getItem("myCart")); // converting the JSON to Object
 
 //checking the local Storage
+//add to cart
 
-if (!localStorageCart) {
-  noCartDiv.style.display = "block";
-  cartItemDiv.style.display = "none";
+if (!localStorageCart || localStorageCart.length < 1) {
+  noCartDiv.classList.add("d-block");
+  cartItemDiv.classList.add("d-none");
 } else {
-  noCartDiv.style.display = "none";
-  cartItemDiv.style.display = "block";
-
+  noCartDiv.classList.add("d-none");
+  cartItemDiv.classList.add("d-block");
   appendCartItems(localStorageCart);
-}
-
-function addToCart(id) {
-  console.log(id);
 }
 
 //append Cart Item
@@ -46,9 +42,9 @@ function appendCartItems(cartItems) {
     <p class="card-text"><small class="text-body-secondary">Price : EGP ${item.price}</small></p>
     <div class="d-flex align-items-center">
 
-        <button class="btn bg-dark text-white m-3" onclick="addToCart(${item.id})"> +</button>
-        <span class="bg-dark text-white p-1 rounded" id="qty">QTY: ${item.qty}</span>
-        <button class="btn bg-dark text-white m-3">-</button>
+        <button class="btn bg-dark text-white m-3" data-in="${item.id}" > +</button>
+        <span class="bg-dark text-white p-1 rounded" data-qty="${item.id}" id="qty">QTY: ${item.qty}</span>
+        <button class="btn bg-dark text-white m-3" data-out="${item.id}">-</button>
     </div>
   </div>
   `;
@@ -56,6 +52,73 @@ function appendCartItems(cartItems) {
     cartItemRow.appendChild(cardDivReight);
   });
 }
+
+//get QTY DOM
+let QTY = document.getElementById("qty");
+
+//Incress ITEM CART
+document.body.addEventListener("click", (e) => {
+  const id = e.target.dataset.in;
+  if (e.target.tagName === "BUTTON" && id) {
+    const myCartLocal = JSON.parse(localStorage.getItem("myCart"));
+
+    //findItemByID
+
+    const findItem = myCartLocal.findIndex((el) => el.id === parseInt(id));
+
+    myCartLocal[findItem].qty++;
+
+    localStorage.setItem("myCart", JSON.stringify(myCartLocal));
+
+    //getting the target span qty element
+    if (id === e.target.nextElementSibling.dataset.qty) {
+      e.target.nextElementSibling.innerHTML = `QTY: ${myCartLocal[findItem].qty}`;
+    }
+
+    totalAmount();
+  }
+});
+
+//Decresss Item From List
+document.body.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const id = e.target.dataset.out;
+  if (e.target.tagName === "BUTTON" && id) {
+    const myCartLocal = JSON.parse(localStorage.getItem("myCart"));
+
+    //findItemByID
+
+    const findItem = myCartLocal.findIndex((el) => el.id === parseInt(id));
+
+    myCartLocal[findItem].qty--;
+
+    localStorage.setItem("myCart", JSON.stringify(myCartLocal));
+
+    //getting the target span qty element
+    if (id === e.target.previousElementSibling.dataset.qty) {
+      e.target.previousElementSibling.innerHTML = `QTY: ${myCartLocal[findItem].qty}`;
+    }
+
+    if (myCartLocal[findItem].qty < 1) {
+      myCartLocal.splice(myCartLocal[findItem], 1);
+      localStorage.setItem("myCart", JSON.stringify(myCartLocal));
+      const reightDiv = e.target.parentNode.parentNode.parentNode;
+      const leftDiv =
+        e.target.parentNode.parentNode.parentNode.previousElementSibling;
+      reightDiv.remove();
+      leftDiv.remove();
+    }
+
+    // checking if the cart length is less than 1 to update the ui
+    if (myCartLocal.length < 1) {
+      localStorage.removeItem("myCart");
+
+      window.location.replace("products.html");
+    }
+
+    totalAmount();
+  }
+});
 
 //get total amount
 function totalAmount() {
@@ -72,5 +135,6 @@ function totalAmount() {
     totalDiv.innerHTML = getTotal;
   }
 }
+
 totalAmount();
 getLocalStorageForBadge();

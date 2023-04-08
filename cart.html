@@ -5,19 +5,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amazon Clone</title>
+    <title>Amazon Clone | Cart</title>
     <!--MAIN CSS-->
     <link rel="stylesheet" href="assets/css/main.css" />
     <!--BOOTSTRAP-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+       
 </head>
 
 <body>
     <!-- Start Navigation-->
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container">
-            <a class="navbar-brand text-white" href="/index.html">Amazon Clone | Cart</a>
+            <a class="navbar-brand text-white" href="/index.html">Amazon Clone </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -94,7 +95,7 @@
     <section id="cart-item">
         <div class="container">
             <div class="row" id="cart-item-row">
-
+                
             </div>
             <div class="row">
                 <div class="col-12">
@@ -112,8 +113,13 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
         <!--Main JAVASCRIPT FILES-->
+        <script src="./assets/js/carts.js" type="module" defer></script>
+<!--         <script type="module">
+            import {addToCart} from './assets/js/carts.js'
+            window.addToCart = addToCart
+            console.log(addToCart)
+        </script> -->
 
-        <script src="./assets/js/carts.js" type="module"></script>
 </body>
 
 </html>

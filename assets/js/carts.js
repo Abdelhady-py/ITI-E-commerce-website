@@ -120,6 +120,23 @@ document.body.addEventListener("click", (e) => {
   }
 });
 
+//order-now
+
+const orderBtn = document.getElementById("order-now");
+orderBtn.addEventListener("click", orderNow);
+function orderNow() {
+  const getOrdersFromLocalStorage = JSON.parse(localStorage.getItem("myCart"));
+
+  let orders = [...getOrdersFromLocalStorage];
+
+  localStorage.setItem("myOrders", JSON.stringify(orders));
+
+  localStorage.removeItem("myCart");
+  alert("your order have been submitted to our DB");
+
+  window.location.replace("products.html");
+}
+
 //get total amount
 function totalAmount() {
   const totalDiv = document.getElementById("total");

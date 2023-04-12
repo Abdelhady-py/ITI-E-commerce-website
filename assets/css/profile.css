@@ -1,40 +1,13 @@
-.bg-custom {
-  background-color: #154646;
+
+
+.bg-custom{
+  background-color: #2e3134!important;
 }
 
 
-.navbar-nav .nav-link {
-  justify-content: center;
-  color: white !important;
-  font-size: 1.3em;
-}
 
-.navbar-brand {
-  color: white !important;
 
-}
 
-body {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(199, 199, 164);
-  padding: 0;
-  overflow-x: hidden
-}
-
-a {
-  font-size: 2em;
-}
-
-.navbar {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-a:hover {
-  background-color: #154646;
-}
 
 
 

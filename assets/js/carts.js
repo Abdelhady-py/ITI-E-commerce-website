@@ -1,5 +1,7 @@
 import { getLocalStorageForBadge } from "./helpers/getLocalStorageForBadge.js";
 
+import { checkingUserData } from "./helpers/checkUserData.js";
+
 //get all elements
 const noCartDiv = document.getElementById("no-cart");
 const cartItemDiv = document.getElementById("cart-item");
@@ -129,6 +131,14 @@ function orderNow() {
 
   let orders = [...getOrdersFromLocalStorage];
 
+  // check ig userData is exist
+  const userData = localStorage.getItem("userData");
+  console.log(userData);
+  if (!userData) {
+    alert("you should login first");
+    return location.assign("login.html");
+  }
+
   localStorage.setItem("myOrders", JSON.stringify(orders));
 
   localStorage.removeItem("myCart");
@@ -155,3 +165,4 @@ function totalAmount() {
 
 totalAmount();
 getLocalStorageForBadge();
+checkingUserData();

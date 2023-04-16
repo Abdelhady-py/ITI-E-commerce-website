@@ -10,7 +10,7 @@ export function checkingUserData() {
     profile.classList.remove("d-none");
     navLogOutBtn.classList.remove("d-none");
     navLoginBtn.classList.add("d-none");
-    profile.children;
+    profile.children[0].innerHTML = userInfo.username;
   }
 }
 

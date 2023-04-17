@@ -1,4 +1,4 @@
-# Welcome to Amazon Clone API
+# Welcome to Amazon Clone Website
 
 it's a Amazon Clone Website
 

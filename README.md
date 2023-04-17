@@ -1,12 +1,11 @@
 # Welcome to Amazon Clone Website
 
-it's a Amazon Clone Website
+it's an Amazon Clone Website
 
 ### installation Guide
 
 1- clone or fork the repo<br/>
-2- npm install<br/>
-3- npm run dev >> to start the development server
+3- Start Your Live Server >> to start the development server
 
 ## Table of contents
 

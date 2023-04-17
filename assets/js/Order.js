@@ -74,6 +74,31 @@ function totalAmount() {
 
     totalDiv.innerHTML = getTotal;
   }
+
+
+  //the delete orders button display
+  var clearOrdersButton=document.getElementById('clear-order-btn')
+
+  if (!getLoclMyOrder || getLoclMyOrder.length < 1) {
+    noCartDiv.classList.add("d-block");
+    cartItemDiv.classList.add("d-none");
+    clearOrdersButton.style.display = "none"; 
+  } else {
+    noCartDiv.classList.add("d-none");
+    cartItemDiv.classList.add("d-block");
+    appendOrderItems(getLoclMyOrder);
+    clearOrdersButton.style.display = "block"; 
+  }
+
+
+  // delete button function 
+
+  // clear orders button functionality
+clearOrdersButton.addEventListener("click", () => {
+  localStorage.removeItem("myOrders");
+  location.reload();
+  clearOrdersButton.style.display = "none"; 
+});
 }
 totalAmount();
 

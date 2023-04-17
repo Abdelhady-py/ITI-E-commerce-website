@@ -133,7 +133,7 @@ function orderNow() {
 
   // check ig userData is exist
   const userData = localStorage.getItem("userData");
-  console.log(userData);
+
   if (!userData) {
     alert("you should login first");
     return location.assign("login.html");
@@ -142,7 +142,9 @@ function orderNow() {
   localStorage.setItem("myOrders", JSON.stringify(orders));
 
   localStorage.removeItem("myCart");
-  alert("your order have been submitted to our DB");
+  alert(
+    "your order have been submitted to our DB Please Go And See Your Orders"
+  );
 
   window.location.replace("products.html");
 }

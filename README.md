@@ -12,9 +12,7 @@ it's an Amazon Clone Website
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](https://i.ibb.co/Q64yT4C/Amazon-Clone-Home.png)
-- [My process](#my-process)
   - [Built with](#HTML,#CSS,#Javascript)
-- [Author](#abdallahifox)
 
 ## Overview
 
@@ -40,6 +38,7 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - CSS custom properties
+- Javascript
 - Flexbox
 - CSS Grid
 - Mobile-first workflow

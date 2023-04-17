@@ -47,8 +47,8 @@ productsDiv.addEventListener("click", (event) => {
   if (event.target.classList.contains("add-to-cart")) {
     const id = event.target.dataset.id;
     addItemToCart(id);
-
-    window.location.replace("cart.html");
+    alert("your item has been added");
+    getLocalStorageForBadge();
   }
 });
 

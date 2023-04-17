@@ -127,26 +127,48 @@ document.body.addEventListener("click", (e) => {
 const orderBtn = document.getElementById("order-now");
 orderBtn.addEventListener("click", orderNow);
 function orderNow() {
-  const getOrdersFromLocalStorage = JSON.parse(localStorage.getItem("myCart"));
-
-  let orders = [...getOrdersFromLocalStorage];
-
-  // check ig userData is exist
+  // checkig userData is exist
   const userData = localStorage.getItem("userData");
 
   if (!userData) {
-    alert("you should login first");
+    alert("you have to login first");
     return location.assign("login.html");
   }
 
-  localStorage.setItem("myOrders", JSON.stringify(orders));
+  const getOrdersFromLocalStorage = JSON.parse(localStorage.getItem("myCart"));
+  const myOrders = JSON.parse(localStorage.getItem("myOrders"));
+  let orderDB = [];
+
+  getOrdersFromLocalStorage.forEach((item) => {
+    if (myOrders) {
+      orderDB = [...myOrders];
+      orderDB.push({
+        id: item.id,
+        category: item.category,
+        image: item.image,
+        price: item.price,
+        qty: item.qty,
+        title: item.title,
+      });
+    } else {
+      orderDB.push({
+        id: item.id,
+        category: item.category,
+        image: item.image,
+        price: item.price,
+        qty: item.qty,
+        title: item.title,
+      });
+    }
+  });
+  localStorage.setItem("myOrders", JSON.stringify(orderDB));
 
   localStorage.removeItem("myCart");
   alert(
     "your order have been submitted to our DB Please Go And See Your Orders"
   );
 
-  window.location.replace("products.html");
+  window.location.replace("order.html");
 }
 
 //get total amount

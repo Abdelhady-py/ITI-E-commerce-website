@@ -24,7 +24,7 @@ Users should be able to:
 - Remove Product from the cart
 - See a list of their Products in the cart
 - Navigate to the cart Page
-- Navigate to the Product pahe
+- Navigate to the Product page
 - Navigate to Profile Page
 - Navigate to Login Page
 - make accounts

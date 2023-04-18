@@ -36,7 +36,7 @@ register_btn.addEventListener("click", (e) => {
     let userCollection = [];
     userCollection.push({ username, email, address, password });
     localStorage.setItem("registrationDB", JSON.stringify(userCollection));
-    location.assign("login.html");
+    location.replace("login.html");
     // return
   }
 
@@ -54,7 +54,7 @@ register_btn.addEventListener("click", (e) => {
     return alertify.alert("this user is aleardy exsist");
   }
 
-  location.assign("login.html");
+  location.replace("login.html");
 });
 getLocalStorageForBadge();
 checkingUserData();

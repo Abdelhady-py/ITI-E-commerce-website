@@ -21,7 +21,7 @@ loginBtn.addEventListener("click", (e) => {
 
   if (!registrationDB) {
     alert("please Registration First");
-    window.location.assign("register.html");
+    window.location.replace("register.html");
   }
 
   const findEmailIndex = registrationDB.findIndex((el) => {
@@ -30,7 +30,7 @@ loginBtn.addEventListener("click", (e) => {
 
   if (findEmailIndex === -1) {
     alert("please Registration First");
-    return window.location.assign("register.html");
+    return window.location.replace("register.html");
   }
 
   if (
@@ -44,7 +44,7 @@ loginBtn.addEventListener("click", (e) => {
       address: registrationDB[findEmailIndex].address,
     };
     localStorage.setItem("userData", JSON.stringify(userData));
-    window.location.assign("index.html");
+    window.location.replace("index.html");
   } else {
     alert("email or password is invalid");
   }

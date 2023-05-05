@@ -59,6 +59,16 @@ function appendOrderItems(cardOrderItems) {
 const totalOrdercount = document.getElementById("Total");
 totalOrdercount.innerHTML = getLoclMyOrder ? getLoclMyOrder.length : "0";
 
+
+//clear Orders
+const cleanBtn = document.getElementById('clear-order-btn')
+cleanBtn.addEventListener('click',clearOrders)
+function clearOrders(){
+  localStorage.removeItem('myOrders')
+  alert('Your Items Has been Deleted')
+  window.location.reload()
+}
+
 //get total price
 function totalAmount() {
   const totalDiv = document.getElementById("tPrice");

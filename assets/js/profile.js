@@ -36,7 +36,6 @@ editFormLink.addEventListener("click", () => {
 
 saveChangesBtn.addEventListener("click", () => {
   const updatedUserData = {
-    ...userData,
     username: document.getElementById("inputUserName").value,
     email: document.getElementById("inputEmail4").value,
     password: document.getElementById("inputPassword4").value,

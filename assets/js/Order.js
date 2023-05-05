@@ -2,7 +2,7 @@ import { checkingUserData } from "./helpers/checkUserData.js";
 
 let noCartDiv = document.getElementById("no-cart");
 let cartItemDiv = document.getElementById("cart-item");
-let orderItems = document.getElementById("order-item");
+let orderItems = document.getElementById("order-item"); 
 
 //getting the Order From LocalStorage
 const getLoclMyOrder = JSON.parse(localStorage.getItem("myOrders"));
@@ -40,7 +40,6 @@ function appendOrderItems(cardOrderItems) {
     }">
           <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
-            <p class="card-text">${item.description}.</p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Price: ${item.price} &dollar;</li>
@@ -76,29 +75,6 @@ function totalAmount() {
   }
 
 
-  //the delete orders button display
-  var clearOrdersButton=document.getElementById('clear-order-btn')
-
-  if (!getLoclMyOrder || getLoclMyOrder.length < 1) {
-    noCartDiv.classList.add("d-block");
-    cartItemDiv.classList.add("d-none");
-    clearOrdersButton.style.display = "none"; 
-  } else {
-    noCartDiv.classList.add("d-none");
-    cartItemDiv.classList.add("d-block");
-    appendOrderItems(getLoclMyOrder);
-    clearOrdersButton.style.display = "block"; 
-  }
-
-
-  // delete button function 
-
-  // clear orders button functionality
-clearOrdersButton.addEventListener("click", () => {
-  localStorage.removeItem("myOrders");
-  location.reload();
-  clearOrdersButton.style.display = "none"; 
-});
 }
 totalAmount();
 

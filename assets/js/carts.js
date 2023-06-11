@@ -25,9 +25,9 @@ if (!localStorageCart || localStorageCart.length < 1) {
 function appendCartItems(cartItems) {
   cartItems.forEach((item, i) => {
     const cardDivLeft = document.createElement("div");
-    cardDivLeft.classList.add("col-12", "col-sm-6");
+    cardDivLeft.classList.add("col-12", "col-sm-6","left-side");
     const cardDivReight = document.createElement("div");
-    cardDivReight.classList.add("col-12", "col-sm-6");
+    cardDivReight.classList.add("col-12", "col-sm-6" ,"right-side");
 
     cardDivLeft.innerHTML += `
 
@@ -68,7 +68,7 @@ document.body.addEventListener("click", (e) => {
 
     const findItem = myCartLocal.findIndex((el) => el.id === parseInt(id));
 
-    myCartLocal[findItem].qty++;
+    myCartLocal[findItem].qty += 1;
 
     localStorage.setItem("myCart", JSON.stringify(myCartLocal));
 
@@ -83,7 +83,6 @@ document.body.addEventListener("click", (e) => {
 
 //Decresss Item From List
 document.body.addEventListener("click", (e) => {
-  e.stopPropagation();
   const id = e.target.dataset.out;
   if (e.target.tagName === "BUTTON" && id) {
     const myCartLocal = JSON.parse(localStorage.getItem("myCart"));
@@ -92,34 +91,19 @@ document.body.addEventListener("click", (e) => {
 
     const findItem = myCartLocal.findIndex((el) => el.id === parseInt(id));
 
-    myCartLocal[findItem].qty--;
-
-    localStorage.setItem("myCart", JSON.stringify(myCartLocal));
-
-    //getting the target span qty element
+    
+    
+    
     if (id === e.target.previousElementSibling.dataset.qty) {
-      e.target.previousElementSibling.innerHTML = `QTY: ${myCartLocal[findItem].qty}`;
-    }
-
-    if (myCartLocal[findItem].qty < 1) {
-      myCartLocal.splice(myCartLocal[findItem], 1);
-      localStorage.setItem("myCart", JSON.stringify(myCartLocal));
-      const reightDiv = e.target.parentNode.parentNode.parentNode;
-      const leftDiv =
-        e.target.parentNode.parentNode.parentNode.previousElementSibling;
-      reightDiv.remove();
-      leftDiv.remove();
-    }
-
-    // checking if the cart length is less than 1 to update the ui
-    if (myCartLocal.length < 1) {
-      localStorage.removeItem("myCart");
-
-      window.location.replace("products.html");
-    }
-
-    totalAmount();
+     myCartLocal[findItem].qty--;
+     localStorage.setItem("myCart",JSON.stringify(myCartLocal)) 
+    e.target.previousElementSibling.innerHTML = `QTY: ${myCartLocal[findItem].qty}`;
   }
+
+
+
+  }
+  totalAmount()
 });
 
 //order-now

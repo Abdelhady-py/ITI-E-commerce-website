@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +12,22 @@
     <link rel="stylesheet" href="assets/css/profile.css">
     <!--MAIN CSS-->
     <link rel="stylesheet" href="assets/css/main.css" />
-    <!--BOOTSTRAP-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+
+
+
+
 </head>
 
+
 <body>
+
     <!-- Start Navigation-->
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container">
-            <a class="navbar-brand text-white" href="/index.html">Amazon Clone | Cart</a>
+            <a class="navbar-brand text-white" href="index.html">Amazon Clone</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -35,8 +43,15 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="products.html">Products</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/login">Login</a>
+                    <li class="nav-item logout d-none" id="navLogOutBtn">
+                        <button class="nav-link text-white">Logout</button>
+                    </li>
+                    <li class="nav-item register " id="navLoginBtn">
+                        <a class="nav-link text-white" href="login.html">Login</a>
+                    </li>
+
+                    <li class="nav-item profile d-none" id="profile">
+                        <a class="nav-link text-white" href="profile.html">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cart.html">
@@ -44,7 +59,7 @@
                                 <path fill="#fff"
                                     d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2s-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.87 7H8.53L4.27 2H1v2h2l3.6 7.59l-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z" />
                             </svg>
-                            <span id="badge" class="bg-white rounded p-2 "></span>
+                            <span id="badge" class="bg-white rounded p-2"></span>
                         </a>
                     </li>
                 </ul>
@@ -54,70 +69,61 @@
     </nav>
     <!--End Navigation -->
 
-    <!--Start Profile-->
-    <div class="mid">
 
 
+    <div class="container-fluid">
+        <div class="row " id="midC">
+            <div class="col-md-2 col-sm-12 bg-custom">
+                <div class="side-links">
+                    <ul class="list-unstyled p-2">
+                        <li><a href="profile.html" class="d-block text-white mt-5 mb-2">My Profile</a></li>
+                        <li><a href="order.html" class="d-block text-white mt-5 mb-2">My Orders</a></li>
+                        <li><a href="#" id="editFormLink" class="d-block text-white mt-5 mb-2">Edit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10 col-sm-12">
+                <form class="row g-3 p-2">
 
 
+                    <div class="col-md-6">
+                        <label for="inputUserName" class="form-label">User name</label>
+                        <input type="text" class="form-control" id="inputUserName" readonly>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" readonly>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="inputPassword4" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4" readonly>
+                      </div>
+                      <div class="col-12">
+                        <label for="inputAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" readonly>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="inputCity" readonly>
+                      </div>
+                      <div class="col-md-2">
+                        <label for="inputZip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" placeholder="32535" readonly>
+                      </div>
+                      
 
-        <aside class="aside">
-            <div class="aside-links">
-                <a href="#">Setting</a>
-                <a href="#">Payment</a>
-                <a href="#">Edit </a>
-                <a href="#">Location</a>
-                <a href="#">Payment</a>
-                <a href="#">Language</a>
+                      <div class="col-12 mt-3">
+                        <button type="button" class="btn btn-primary" id="saveChangesBtn">Save Changes</button>
+                </form>
 
             </div>
-        </aside>
-
-
-
-        <div class="form">
-
-
-
-            <form>
-                <label for="firstName">Your First Name:</label>
-                <input type="text" id="firstName" name="firstName" readonly>
-
-                <label for="lastName">Your Last Name:</label>
-                <input type="text" id="lastName" name="lastName" readonly>
-
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" readonly>
-
-                <label for="phone">Your Phone Number:</label>
-                <input type="tel" id="phone" name="phone" readonly>
-
-                <label for="address">Your Address:</label>
-                <input id="address" name="address" type="address" readonly></input>
-
-                <label for="city">Your City:</label>
-                <input type="text" id="city" name="city" readonly>
-
-                <label for="state">Your State:</label>
-                <input type="text" id="state" name="state" readonly>
-
-                <label for="zip">Your Zip Code:</label>
-                <input type="text" id="zip" name="zip" readonly>
-
-                <label for="country">Your Country:</label>
-                <input type="text" id="country" name="country" readonly>
-
-                <button type="submit">Save Changes</button>
-            </form>
-
         </div>
-
-
-
-
     </div>
 
-    <!--End Profile-->
+
+
+
+
 
     <!--Start Footer-->
     <footer id="footer" class="bg-dark">
@@ -126,6 +132,12 @@
         </div>
     </footer>
     <!--End Footer-->
+
+
+    <!--BOOTSTRAP JS-->
+    <Script src="./assets/js/bootstrap.min.js"></Script>
+    <!--MAIN JS FILES-->
+    <script src="assets/js/profile.js" type="module"></script>
 </body>
 
 </html>

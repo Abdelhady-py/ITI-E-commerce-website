@@ -1,71 +1,22 @@
-.mid {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .aside {
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    background-color: #222c2c;
-    color: white;
-    font-size: 1.2em;
-  }
-  .aside .aside-links {
-    width: auto;
-    flex-wrap: wrap;
-    margin-left: 4%;
+
+
+.bg-custom{
+  background-color: #2e3134!important;
+}
+
+
+
+@media screen and (min-width:768px) {
+  .container-fluid {
     display: flex;
     flex-direction: column;
-    text-align: left;
-    text-decoration: none;
-    color: white;
-  }
-  .aside .aside-links a {
+    height: 100vh;
+    flex-grow: 1;
     padding: 0;
-    width: auto;
-    text-align: center;
-    flex-wrap: nowrap;
   }
-  
-  .form {
-    width: 60%;
-    padding: 4%;
+
+  #midC {
+    height: 100vh;
+    flex-grow: 1;
   }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid #ccc;
-    background-color: #f2f2f2;
-    padding: 4%;
-    border-radius: 15px;
-    margin: 0 auto;
-    margin-bottom: 3%;
-  }
-  
-  input[type=text], input[type=email], input[type=tel], input[type=address] {
-    padding: 0.5% 0.5% 0.5% 0.5%;
-    height: 3vw;
-    width: 30%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-bottom: 4%;
-  }
-  
-  button[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1%;
-    font-size: 1em;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 30%;
-  }
-  
-  button[type=submit]:hover {
-    background-color: #45a049;
-  }
+}

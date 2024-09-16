@@ -2,7 +2,8 @@
 import { getAllProducts, getAllCategories } from "./helpers/fetchAPI.js";
 import { appendHotDeals } from "./helpers/appendHotDeals.js";
 import { appendCategories } from "./helpers/appendCategories.js";
-import { getLocalStorage } from "./helpers/getLocalStorage.js";
+import { getLocalStorageForBadge } from "./helpers/getLocalStorageForBadge.js";
+import { checkingUserData } from "./helpers/checkUserData.js";
 //API_URL
 const API_URL = "./assets/js/apis";
 
@@ -19,4 +20,5 @@ appendHotDeals(filterdHotProducts);
 
 appendCategories(categories);
 
-getLocalStorage();
+getLocalStorageForBadge();
+checkingUserData();

@@ -1,6 +1,6 @@
 //Get All DOM Selector
 const badge = document.getElementById("badge");
-export function getLocalStorage() {
+export function getLocalStorageForBadge() {
   //chekcing the localstorage for items
   const cartItems = JSON.parse(localStorage.getItem("myCart"));
   if (cartItems) {

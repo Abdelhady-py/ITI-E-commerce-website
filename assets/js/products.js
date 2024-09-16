@@ -1,6 +1,7 @@
 //imports
 import { getAllProducts } from "./helpers/fetchAPI.js";
-import { getLocalStorage } from "./helpers/getLocalStorage.js";
+import { getLocalStorageForBadge } from "./helpers/getLocalStorageForBadge.js";
+import { checkingUserData } from "./helpers/checkUserData.js";
 //API_URL
 const API_URL = "./assets/js/apis";
 // Fetching All The Products
@@ -22,10 +23,18 @@ function appendProducts() {
     productCard.innerHTML += `
       <div class="card" >
           <div class="card-body">
-              <img src="${prod.image}" class="w-75" alt="${prod.title}">
-              <h6 class="card-subtitle mb-2 mt-2 text-body-secondary">${prod.title}</h6>
-              <h6 class="card-subtitle mb-2 text-body-secondary fw-bold"> EGP : ${prod.price}</h6>
-              <btn class="btn btn-dark add-to-cart" data-id="${prod.id}">add To Cart</btn>
+              <img src="${prod.image}" class="object-fit-cover w-100" alt="${
+      prod.title
+    }">
+              <h6 class="card-subtitle mb-2 mt-2 text-body-secondary">${
+                prod.title.substring(0, 30) + "..."
+              }</h6>
+              <h6 class="card-subtitle mb-2 text-body-secondary fw-bold"> EGP : ${
+                prod.price
+              }</h6>
+              <btn class="btn btn-dark add-to-cart" data-id="${
+                prod.id
+              }">add To Cart</btn>
           </div>
         </div>
 
@@ -38,8 +47,8 @@ productsDiv.addEventListener("click", (event) => {
   if (event.target.classList.contains("add-to-cart")) {
     const id = event.target.dataset.id;
     addItemToCart(id);
-
-    window.location.replace("cart.html");
+    alert("your item has been added");
+    getLocalStorageForBadge();
   }
 });
 
@@ -77,4 +86,5 @@ function addItemToCart(id) {
 }
 
 appendProducts();
-getLocalStorage();
+getLocalStorageForBadge();
+checkingUserData();
